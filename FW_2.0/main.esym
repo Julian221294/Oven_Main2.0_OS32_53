@@ -1,7 +1,7 @@
-D G "__PCH__" 0 124 ""5.025""
-D G "__DEVICE__" 0 124 "4523"
-D G "__DATE__" 0 124 ""01-Nov-23""
-D G "__TIME__" 0 124 ""10:38:33"" "Standard Header file for the PIC18F4523 device ////////////////"
+D G "__PCH__" 0 0 ""5.025""
+D G "__DEVICE__" 0 0 ""
+D G "__DATE__" 0 0 ""01-Thg11-23""
+D G "__TIME__" 0 0 ""14:52:01"" "Standard Header file for the PIC18F4523 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 43 "int8" `54 
 f B "set_tris_a" 2 43 "void(int8 value)" `53 
@@ -1987,6 +1987,7 @@ C L "global_init" 0 17 3 "FUNCTION"
 C L "global_init" 0 17 1 "FUNCTION"
 C L "global_init" 0 17 1 "FUNCTION"
 C L "global_init" 0 17 2 "FUNCTION"
+C L "global_init" 0 17 1 "FUNCTION"
 C L "global_init" 0 17 1 "FUNCTION"
 F G "MAIN" 0 91 "void()" `1313  "delay_ms(1000);"
 F B "reset_cpu" 0 0

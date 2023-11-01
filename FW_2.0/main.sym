@@ -597,31 +597,31 @@ ROM Allocation:
 0068BC  Ctrl2Off
 
 Project Directory:
-    F:\1. YEAR_2023\1. NIHOPHAWA_2023\1.1. Git_Program\1.1.5. Oven_Main2.0\Oven_OS32_OS53\FW_2.0\
+    E:\Vuong_2022\Oven_Main2.0_OS32_53\FW_2.0\
 
 Project Files:
-    main.c                                                  [01-Nov-23 09:50  CRC=4CCF4F36]
-    main.h                                                  [26-Dec-20 11:54  CRC=C9E5DB3E]
-    C:\Program Files (x86)\PICC\Devices\18F4523.h           [18-Apr-14 16:57  CRC=150A54F8]
-    leds.h                                                  [25-Aug-21 16:41  CRC=8CEB73FB]
-    globals.h                                               [30-Nov-21 15:23  CRC=B2DA4950]
-    ds1307.h                                                [25-Oct-21 08:28  CRC=036F0567]
-    cap1188.h                                               [22-Dec-20 11:50  CRC=DB46E360]
-    keys.h                                                  [28-Aug-19 15:01  CRC=784FCB76]
-    adc.h                                                   [25-Aug-21 09:02  CRC=31C92B88]
-    AFE90100.h                                              [23-May-15 09:39  CRC=820E0E6E]
-    TI_LMP90100.h                                           [23-May-15 09:39  CRC=57C1AFE3]
-    triac.h                                                 [29-Oct-21 15:53  CRC=EACA356B]
-    rtcc.h                                                  [26-Dec-20 11:47  CRC=10923083]
-    process_touchs.h                                        [25-Oct-21 14:47  CRC=24D3EB59]
-    process_leds.h                                          [28-Sep-21 14:26  CRC=C5788E0F]
-    process_rs232.h                                         [12-Oct-21 15:40  CRC=F1749494]
-    process_lifecycle.h                                     [25-Oct-21 10:07  CRC=263B3FC5]
-    process_data.h                                          [20-Oct-21 11:30  CRC=0E268569]
-    pid.h                                                   [20-Oct-21 16:07  CRC=DA87C72F]
-    max31865.h                                              [23-Dec-20 11:36  CRC=39BF757E]
+    main.c                                                  [01-Thg11-23 13:55  CRC=594FEF8A]
+    main.h                                                  [01-Thg11-23 11:15  CRC=C9E5DB3E]
+    C:\Program Files (x86)\PICC\Devices\18F4523.h           [18-Thg4-14 16:57  CRC=150A54F8]
+    leds.h                                                  [01-Thg11-23 11:15  CRC=8CEB73FB]
+    globals.h                                               [01-Thg11-23 11:15  CRC=B2DA4950]
+    ds1307.h                                                [01-Thg11-23 11:15  CRC=036F0567]
+    cap1188.h                                               [01-Thg11-23 11:15  CRC=DB46E360]
+    keys.h                                                  [01-Thg11-23 11:15  CRC=784FCB76]
+    adc.h                                                   [01-Thg11-23 11:15  CRC=31C92B88]
+    AFE90100.h                                              [01-Thg11-23 11:15  CRC=820E0E6E]
+    TI_LMP90100.h                                           [01-Thg11-23 11:15  CRC=57C1AFE3]
+    triac.h                                                 [01-Thg11-23 11:15  CRC=EACA356B]
+    rtcc.h                                                  [01-Thg11-23 11:15  CRC=10923083]
+    process_touchs.h                                        [01-Thg11-23 11:15  CRC=24D3EB59]
+    process_leds.h                                          [01-Thg11-23 11:15  CRC=C5788E0F]
+    process_rs232.h                                         [01-Thg11-23 11:15  CRC=F1749494]
+    process_lifecycle.h                                     [01-Thg11-23 11:15  CRC=263B3FC5]
+    process_data.h                                          [01-Thg11-23 11:15  CRC=0E268569]
+    pid.h                                                   [01-Thg11-23 11:15  CRC=DA87C72F]
+    max31865.h                                              [01-Thg11-23 11:15  CRC=39BF757E]
 
-Source signature=27A9C610
+Source signature=342A6664
 
 Units:
     main (main)

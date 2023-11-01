@@ -7,7 +7,7 @@
 >>> Warning 216 "main.c" Line 118(1,2): Interrupts disabled during call to prevent re-entrancy:  (@DIVFF)
 >>> Warning 216 "main.c" Line 118(1,2): Interrupts disabled during call to prevent re-entrancy:  (@FLT)
 >>> Warning 216 "main.c" Line 118(1,2): Interrupts disabled during call to prevent re-entrancy:  (@SFTOI)
->>> Warning 202 "F:\1. YEAR_2023\1. NIHOPHAWA_2023\1.1. Git_Program\1.1.5. Oven_Main2.0\Oven_OS32_OS53\FW_2.0\max31865.h" Line 20(16,38): Variable never used:   RTD_REF_RESISTANCE_430
+>>> Warning 202 "E:\Vuong_2022\Oven_Main2.0_OS32_53\FW_2.0\max31865.h" Line 20(16,38): Variable never used:   RTD_REF_RESISTANCE_430
       Memory usage:   ROM=82%      RAM=14% - 18%
       0 Errors,  10 Warnings.
 Build Successful.

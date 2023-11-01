@@ -146,8 +146,14 @@ D6_L=2
 D6_L1=[33011]Project Opened.
 D6_L2=[39548]Project Closed.
 D7=01-11-2023
-D7_L=1
+D7_L=7
 D7_L1=[37283]Project Opened.
+D7_L2=[53507]Project Opened.
+D7_L3=[53664]Project Closed.
+D7_L4=[53664]Project Opened.
+D7_L5=[53693]Project Closed.
+D7_L6=[53693]Project Opened.
+D7_L7=[53711]Project Closed.
 [Units]
 Count=1
 1=main (main)
