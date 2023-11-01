@@ -34,7 +34,7 @@ void global_init(void)
    key_init();
    adc_init();
    triac_init();
-   RTCC_init();
+   RTCC_init(); // setup_timer0
    Start_DS1307();
    // max31865_init();
    PutDateTime();
