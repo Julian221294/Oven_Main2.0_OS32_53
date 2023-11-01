@@ -1,0 +1,896 @@
+ÀÄ1
+   ÃÄMAIN  0/318  Ram=0
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄglobal_init  0/554  Ram=0
+   ³  ³  ÃÄkey_init  (Inline)  Ram=0
+   ³  ³  ³  ÃÄcap1188_init  0/78  Ram=0
+   ³  ³  ³  ³  ÃÄ@delay_ms1  0/38  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_reset  (Inline)  Ram=0
+   ³  ³  ³  ³  ³  ÃÄ@delay_ms1  0/38  Ram=1
+   ³  ³  ³  ³  ³  ÃÄ@delay_ms1  0/38  Ram=1
+   ³  ³  ³  ³  ³  ÃÄ@delay_ms1  0/38  Ram=1
+   ³  ³  ³  ³  ³  ÃÄ@delay_ms1  0/38  Ram=1
+   ³  ³  ³  ³  ³  ÃÄ@delay_ms1  0/38  Ram=1
+   ³  ³  ³  ³  ³  ÃÄ@delay_ms1  0/38  Ram=1
+   ³  ³  ³  ³  ³  ÀÄ@delay_ms1  0/38  Ram=1
+   ³  ³  ³  ³  ÀÄ@delay_ms1  0/38  Ram=1
+   ³  ³  ³  ÃÄcap1188_write_data1  0/76  Ram=2
+   ³  ³  ³  ÃÄcap1188_write_data2  0/76  Ram=2
+   ³  ³  ³  ÃÄcap1188_write_data1  0/76  Ram=2
+   ³  ³  ³  ÃÄcap1188_write_data2  0/76  Ram=2
+   ³  ³  ³  ÃÄcap1188_write_data1  0/76  Ram=2
+   ³  ³  ³  ÀÄcap1188_write_data2  0/76  Ram=2
+   ³  ³  ÃÄadc_init  (Inline)  Ram=0
+   ³  ³  ³  ÃÄAFE90100_WriteReg  0/80  Ram=5
+   ³  ³  ³  ÃÄAFE90100_WriteReg  0/80  Ram=5
+   ³  ³  ³  ÃÄAFE90100_WriteReg  0/80  Ram=5
+   ³  ³  ³  ÃÄAFE90100_WriteReg  0/80  Ram=5
+   ³  ³  ³  ÃÄAFE90100_WriteReg  0/80  Ram=5
+   ³  ³  ³  ÀÄ@ADDFF  0/812  Ram=16
+   ³  ³  ÃÄtriac_init  (Inline)  Ram=0
+   ³  ³  ³  ÃÄCtrl1Off  (Inline)  Ram=0
+   ³  ³  ³  ÃÄCtrl2Off  (Inline)  Ram=0
+   ³  ³  ³  ÀÄCtrl3Off  (Inline)  Ram=0
+   ³  ³  ÃÄRTCC_init  0/54  Ram=0
+   ³  ³  ÃÄStart_DS1307  0/16  Ram=1
+   ³  ³  ³  ÀÄwrite_DS1307  0/210  Ram=4
+   ³  ³  ³     ÃÄ@I2C_WRITE_1  0/108  Ram=1
+   ³  ³  ³     ÃÄ@I2C_WRITE_1  0/108  Ram=1
+   ³  ³  ³     ÃÄ@I2C_WRITE_1  0/108  Ram=1
+   ³  ³  ³     ÃÄ@I2C_WRITE_1  0/108  Ram=1
+   ³  ³  ³     ÀÄ@I2C_WRITE_1  0/108  Ram=1
+   ³  ³  ÃÄPutDateTime  0/104  Ram=1
+   ³  ³  ³  ÃÄread_DS1307  0/156  Ram=2
+   ³  ³  ³  ³  ÃÄ@I2C_WRITE_1  0/108  Ram=1
+   ³  ³  ³  ³  ÃÄ@I2C_WRITE_1  0/108  Ram=1
+   ³  ³  ³  ³  ÃÄ@I2C_WRITE_1  0/108  Ram=1
+   ³  ³  ³  ³  ÀÄ@I2C_READ_1  0/104  Ram=3
+   ³  ³  ³  ÃÄSetDate  0/74  Ram=2
+   ³  ³  ³  ³  ÀÄ@goto11263  0/40  Ram=0
+   ³  ³  ³  ÃÄread_DS1307  0/156  Ram=2
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄread_DS1307  0/156  Ram=2
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÀÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄLedClockOn  0/6  Ram=0
+   ³  ³  ÃÄSpeakerOff  0/8  Ram=0
+   ³  ³  ÃÄLoad_Data  0/378  Ram=4
+   ³  ³  ³  ÃÄread_DS1307  0/156  Ram=2
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄread_DS1307  0/156  Ram=2
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄread_DS1307  0/156  Ram=2
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄread_DS1307  0/156  Ram=2
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄ@MUL1616  0/30  Ram=5
+   ³  ³  ÃÄLoad_PID  0/506  Ram=4
+   ³  ³  ÃÄProcess_Touch_0  0/54  Ram=0
+   ³  ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data1  0/88  Ram=2
+   ³  ³  ³  ³  ÃÄcap1188_write_data1  0/76  Ram=2
+   ³  ³  ³  ³  ÃÄcap1188_read_data2  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data2  0/76  Ram=2
+   ³  ³  ³  ÃÄLed_0_On  0/60  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data1  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data1  0/76  Ram=2
+   ³  ³  ³  ÀÄLoad_Data_Program_EEPROM  0/256  Ram=0
+   ³  ³  ³     ÀÄ@goto10790  0/46  Ram=0
+   ³  ³  ÃÄProcess_Touch_1  0/54  Ram=0
+   ³  ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_1_On  0/60  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data1  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data1  0/76  Ram=2
+   ³  ³  ³  ÀÄLoad_Data_Program_EEPROM  0/256  Ram=0
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄProcess_Touch_2  0/54  Ram=0
+   ³  ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_2_On  0/60  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data1  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data1  0/76  Ram=2
+   ³  ³  ³  ÀÄLoad_Data_Program_EEPROM  0/256  Ram=0
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄProcess_Touch_3  0/54  Ram=0
+   ³  ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_3_On  0/60  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data1  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data1  0/76  Ram=2
+   ³  ³  ³  ÀÄLoad_Data_Program_EEPROM  0/256  Ram=0
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄProcess_Touch_4  0/54  Ram=0
+   ³  ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_4_On  0/60  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data1  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data1  0/76  Ram=2
+   ³  ³  ³  ÀÄLoad_Data_Program_EEPROM  0/256  Ram=0
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄProcess_Touch_5  0/54  Ram=0
+   ³  ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_5_On  0/60  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data1  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data1  0/76  Ram=2
+   ³  ³  ³  ÀÄLoad_Data_Program_EEPROM  0/256  Ram=0
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄProcess_Touch_6  0/54  Ram=0
+   ³  ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_6_On  0/60  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data1  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data1  0/76  Ram=2
+   ³  ³  ³  ÀÄLoad_Data_Program_EEPROM  0/256  Ram=0
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄProcess_Touch_7  0/54  Ram=0
+   ³  ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_7_On  0/60  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data1  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data1  0/76  Ram=2
+   ³  ³  ³  ÀÄLoad_Data_Program_EEPROM  0/256  Ram=0
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄProcess_Touch_8  0/54  Ram=0
+   ³  ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_8_On  0/60  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data2  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data2  0/76  Ram=2
+   ³  ³  ³  ÀÄLoad_Data_Program_EEPROM  0/256  Ram=0
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄProcess_Touch_A  0/52  Ram=0
+   ³  ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_A_On  0/60  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data2  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data2  0/76  Ram=2
+   ³  ³  ³  ÀÄLoad_Data_Program_EEPROM  0/256  Ram=0
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄLed_D_On  0/60  Ram=1
+   ³  ³  ³  ÃÄcap1188_read_data2  0/88  Ram=2
+   ³  ³  ³  ÀÄcap1188_write_data2  0/76  Ram=2
+   ³  ³  ÀÄLoad_Data_User  0/266  Ram=4
+   ³  ³     ÀÄ@MUL1616  0/30  Ram=5
+   ³  ÃÄProcess_Touch  0/254  Ram=2
+   ³  ³  ÃÄBeep  0/10  Ram=2
+   ³  ³  ÃÄ@goto12020  0/140  Ram=0
+   ³  ³  ÃÄProcess_Touch_0  0/54  Ram=0
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Setup  0/904  Ram=4
+   ³  ³  ³  ÃÄ@goto12519  0/54  Ram=0
+   ³  ³  ³  ÃÄ@MUL1616  0/30  Ram=5
+   ³  ³  ³  ÃÄ@MUL1616  0/30  Ram=5
+   ³  ³  ³  ÃÄ@MUL1616  0/30  Ram=5
+   ³  ³  ³  ÃÄ@MUL1616  0/30  Ram=5
+   ³  ³  ³  ÃÄ@MUL1616  0/30  Ram=5
+   ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ÃÄ@MUL1616  0/30  Ram=5
+   ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ÃÄ@MUL1616  0/30  Ram=5
+   ³  ³  ³  ÃÄ@MUL1616  0/30  Ram=5
+   ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ÃÄ@MUL1616  0/30  Ram=5
+   ³  ³  ³  ÃÄ@MUL1616  0/30  Ram=5
+   ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ÃÄ@MUL1616  0/30  Ram=5
+   ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ÃÄ@MUL1616  0/30  Ram=5
+   ³  ³  ³  ÃÄ@MUL1616  0/30  Ram=5
+   ³  ³  ³  ÀÄ@MUL1616  0/30  Ram=5
+   ³  ³  ÃÄProcess_Touch_1  0/54  Ram=0
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Setup  0/904  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Touch_2  0/54  Ram=0
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Setup  0/904  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Touch_3  0/54  Ram=0
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Setup  0/904  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Touch_4  0/54  Ram=0
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Setup  0/904  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Touch_5  0/54  Ram=0
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Setup  0/904  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Touch_6  0/54  Ram=0
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Setup  0/904  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Touch_7  0/54  Ram=0
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Setup  0/904  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Touch_8  0/54  Ram=0
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Setup  0/904  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Touch_9  0/46  Ram=0
+   ³  ³  ³  ÃÄ@goto12172  0/38  Ram=0
+   ³  ³  ³  ÃÄLed_Dot_On  0/60  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data2  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data2  0/76  Ram=2
+   ³  ³  ³  ÀÄLed_Dot_Off  0/60  Ram=1
+   ³  ³  ³     ÃÄcap1188_read_data2  0/88  Ram=2
+   ³  ³  ³     ÀÄcap1188_write_data2  0/76  Ram=2
+   ³  ³  ÃÄProcess_Touch_A  0/52  Ram=0
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Setup  0/904  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄProcess_Touch_B  0/102  Ram=0
+   ³  ³  ³  ÃÄ@goto12187  0/54  Ram=0
+   ³  ³  ³  ÃÄLed_Dot_On  0/60  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄLed_Dot_On  0/60  Ram=1
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄProcess_Touch_C  0/252  Ram=0
+   ³  ³  ³  ÃÄLed_C_On  0/62  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data2  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data2  0/76  Ram=2
+   ³  ³  ³  ÃÄStore_Mode  0/16  Ram=0
+   ³  ³  ³  ³  ÀÄwrite_DS1307  0/210  Ram=4
+   ³  ³  ³  ³     ÀÄ*
+   ³  ³  ³  ÃÄLoad_PID  0/506  Ram=4
+   ³  ³  ³  ÃÄread_DS1307  0/156  Ram=2
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_C_Off  0/62  Ram=1
+   ³  ³  ³  ³  ÃÄcap1188_read_data2  0/88  Ram=2
+   ³  ³  ³  ³  ÀÄcap1188_write_data2  0/76  Ram=2
+   ³  ³  ³  ÃÄread_DS1307  0/156  Ram=2
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄProcess_Touch_0  0/54  Ram=0
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄProcess_Touch_1  0/54  Ram=0
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄProcess_Touch_2  0/54  Ram=0
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄProcess_Touch_3  0/54  Ram=0
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄProcess_Touch_4  0/54  Ram=0
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄProcess_Touch_5  0/54  Ram=0
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄProcess_Touch_6  0/54  Ram=0
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄProcess_Touch_7  0/54  Ram=0
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄProcess_Touch_8  0/54  Ram=0
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄProcess_Touch_A  0/52  Ram=0
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄLed_D_On  0/60  Ram=1
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄProcess_Touch_D  0/256  Ram=0
+   ³  ³  ³  ÃÄLoad_Data_User  0/266  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@goto12148  0/66  Ram=0
+   ³  ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_D_On  0/60  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_D_On  0/60  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_Dot_On  0/60  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄLed_Dot_Off  0/60  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄStore_WaitTime  0/68  Ram=0
+   ³  ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ³  ÃÄwrite_DS1307  0/210  Ram=4
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÀÄwrite_DS1307  0/210  Ram=4
+   ³  ³  ³  ³     ÀÄ*
+   ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ÃÄCheck_Data_Previous  0/80  Ram=0
+   ³  ³  ³  ÃÄStore_Setpoint  0/96  Ram=2
+   ³  ³  ³  ÃÄStore_Protect  0/96  Ram=2
+   ³  ³  ³  ÃÄStore_HoldTime  0/130  Ram=0
+   ³  ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ³  ÀÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ÀÄStore_SERI  0/96  Ram=2
+   ³  ³  ÃÄProcess_Touch_Down  0/462  Ram=3
+   ³  ³  ³  ÃÄLed_Dot_On  0/60  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄPutPid  0/354  Ram=7
+   ³  ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ³  ÀÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄStore_Kp  0/194  Ram=2
+   ³  ³  ³  ÃÄPutPid  0/354  Ram=7
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄStore_Ki  0/194  Ram=2
+   ³  ³  ³  ÃÄPutPid  0/354  Ram=7
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄStore_Kd  0/194  Ram=2
+   ³  ³  ³  ÃÄPutOffset  0/804  Ram=9
+   ³  ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ³  ÃÄAddPoint  0/8  Ram=1
+   ³  ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ³  ÃÄAddPoint  0/8  Ram=1
+   ³  ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ³  ÀÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄStore_Offset  0/94  Ram=2
+   ³  ³  ³  ÃÄwrite_DS1307  0/210  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄwrite_DS1307  0/210  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄwrite_DS1307  0/210  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄwrite_DS1307  0/210  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄStore_FanSpeed  0/46  Ram=0
+   ³  ³  ÃÄProcess_Touch_Up  0/508  Ram=3
+   ³  ³  ³  ÃÄLed_Dot_Off  0/60  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄPutPid  0/354  Ram=7
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄStore_Kp  0/194  Ram=2
+   ³  ³  ³  ÃÄPutPid  0/354  Ram=7
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄStore_Ki  0/194  Ram=2
+   ³  ³  ³  ÃÄPutPid  0/354  Ram=7
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄStore_Kd  0/194  Ram=2
+   ³  ³  ³  ÃÄPutOffset  0/804  Ram=9
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄStore_Offset  0/94  Ram=2
+   ³  ³  ³  ÃÄwrite_DS1307  0/210  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@DIV88  0/40  Ram=3
+   ³  ³  ³  ÃÄ@DIV88  0/40  Ram=3
+   ³  ³  ³  ÃÄwrite_DS1307  0/210  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@DIV88  0/40  Ram=3
+   ³  ³  ³  ÃÄ@DIV88  0/40  Ram=3
+   ³  ³  ³  ÃÄwrite_DS1307  0/210  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄwrite_DS1307  0/210  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄStore_FanSpeed  0/46  Ram=0
+   ³  ³  ÃÄProcess_Touch_a_Small  0/58  Ram=0
+   ³  ³  ³  ÃÄBeep  0/10  Ram=2
+   ³  ³  ³  ÃÄPutOffset  0/804  Ram=9
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄBeep  0/10  Ram=2
+   ³  ³  ÃÄProcess_Touch_b_Small  0/64  Ram=0
+   ³  ³  ³  ÃÄLoad_PID  0/506  Ram=4
+   ³  ³  ³  ÃÄBeep  0/10  Ram=2
+   ³  ³  ³  ÃÄPutPid  0/354  Ram=7
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄBeep  0/10  Ram=2
+   ³  ³  ÃÄProcess_Touch_d_Small  0/52  Ram=0
+   ³  ³  ³  ÀÄStore_Password  0/96  Ram=2
+   ³  ³  ÃÄProcess_Touch_e_Small  0/64  Ram=0
+   ³  ³  ³  ÃÄBeep  0/10  Ram=2
+   ³  ³  ³  ÃÄLoad_PID  0/506  Ram=4
+   ³  ³  ³  ÃÄPutPid  0/354  Ram=7
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄBeep  0/10  Ram=2
+   ³  ³  ÃÄProcess_Touch_f_Small  0/44  Ram=0
+   ³  ³  ³  ÃÄLoad_PID  0/506  Ram=4
+   ³  ³  ³  ÀÄPutPid  0/354  Ram=7
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄProcess_Touch_h_Small  0/52  Ram=0
+   ³  ³  ³  ÃÄBeep  0/10  Ram=2
+   ³  ³  ³  ÀÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÀÄ@MUL1616  0/30  Ram=5
+   ³  ÃÄProcess_Led  0/1698  Ram=2
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄPutDateTime  0/104  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@goto12627  0/84  Ram=0
+   ³  ³  ÃÄLedSetTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeDelayOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeSterOff  0/4  Ram=0
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄLed_Dot_Off  0/60  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄLedSetTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeDelayOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeSterOff  0/4  Ram=0
+   ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÃÄ@goto11352  0/56  Ram=0
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÀÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄLedSetTempOn  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeDelayOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeSterOn  0/4  Ram=0
+   ³  ³  ÃÄPutTempSign  0/1230  Ram=9
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄAddPoint  0/8  Ram=1
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄAddPoint  0/8  Ram=1
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄAddPoint  0/8  Ram=1
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÃÄ@DIVS1616  0/116  Ram=6
+   ³  ³  ³  ÀÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄPutTime_One  0/350  Ram=10
+   ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ³  ÃÄ@DIV88  0/40  Ram=3
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄ@DIV88  0/40  Ram=3
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄAddPoint  0/8  Ram=1
+   ³  ³  ³  ÃÄ@DIV88  0/40  Ram=3
+   ³  ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ³  ÃÄ@DIV88  0/40  Ram=3
+   ³  ³  ³  ÀÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄLedSetTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOn  0/4  Ram=0
+   ³  ³  ÃÄLedTimeDelayOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeSterOn  0/4  Ram=0
+   ³  ³  ÃÄPutTempSign  0/1230  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutTime_One  0/350  Ram=10
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLedSetTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeDelayOn  0/6  Ram=0
+   ³  ³  ÃÄLedTimeSterOff  0/4  Ram=0
+   ³  ³  ÃÄ@goto12556  0/42  Ram=0
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutTime_One  0/350  Ram=10
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLedSetTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOn  0/4  Ram=0
+   ³  ³  ÃÄLedTimeDelayOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeSterOn  0/4  Ram=0
+   ³  ³  ÃÄPutTempSign  0/1230  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutTime_One  0/350  Ram=10
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄGet7Seg  0/110  Ram=1
+   ³  ³  ÃÄLedSetTempOn  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeDelayOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeSterOn  0/4  Ram=0
+   ³  ³  ÃÄPutTempSign  0/1230  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutTime_One  0/350  Ram=10
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄBeep  0/10  Ram=2
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLedProtectTempOn  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedSetTempOn  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeDelayOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeSterOn  0/4  Ram=0
+   ³  ³  ÃÄPutTempSign  0/1230  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutTime_One  0/350  Ram=10
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄBeep  0/10  Ram=2
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLedProtectTempOn  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedSetTempOn  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeDelayOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeSterOff  0/4  Ram=0
+   ³  ³  ÃÄPutTempSign  0/1230  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutTime_One  0/350  Ram=10
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄBeep  0/10  Ram=2
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLedProtectTempOn  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOff  0/4  Ram=0
+   ³  ³  ÃÄLed_F_On  0/62  Ram=1
+   ³  ³  ³  ÃÄcap1188_read_data2  0/88  Ram=2
+   ³  ³  ³  ÀÄcap1188_write_data2  0/76  Ram=2
+   ³  ³  ÃÄPutPid  0/354  Ram=7
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_E_On  0/62  Ram=1
+   ³  ³  ³  ÃÄcap1188_read_data2  0/88  Ram=2
+   ³  ³  ³  ÀÄcap1188_write_data2  0/76  Ram=2
+   ³  ³  ÃÄPutPid  0/354  Ram=7
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_D_On  0/60  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutPid  0/354  Ram=7
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLedSetTempOn  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeDelayOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeSterOff  0/4  Ram=0
+   ³  ³  ÃÄPutTempSign  0/1230  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLedSetTempOn  0/4  Ram=0
+   ³  ³  ÃÄLedProtectTempOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeDelayOff  0/4  Ram=0
+   ³  ³  ÃÄLedTimeSterOn  0/4  Ram=0
+   ³  ³  ÃÄPutTempSign  0/1230  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutTime_One  0/350  Ram=10
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_Prog_Off  0/120  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@goto12624  0/48  Ram=0
+   ³  ³  ÃÄLed_0_On  0/60  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_1_On  0/60  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_2_On  0/60  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_3_On  0/60  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_4_On  0/60  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_5_On  0/60  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_6_On  0/60  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_7_On  0/60  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_8_On  0/60  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_A_On  0/60  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄLed_D_On  0/60  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@goto12650  0/70  Ram=0
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄPutSign  0/2266  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄLed_Prog_Off  0/120  Ram=1
+   ³  ³     ÀÄ*
+   ³  ÃÄProcess_Rs232  0/1262  Ram=3
+   ³  ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄ@PSTRINGC_1  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@goto12703  0/46  Ram=0
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÃÄ@DIV88  0/40  Ram=3
+   ³  ³  ³  ÀÄ@DIV88  0/40  Ram=3
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@PRINTF_L32D_9600_31766_31767FPFPF  0/402  Ram=13
+   ³  ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ³  ÃÄ@FTOSD  0/64  Ram=5
+   ³  ³  ³  ÃÄ@DIV3232  0/142  Ram=13
+   ³  ³  ³  ÀÄ@DIV3232  0/142  Ram=13
+   ³  ³  ÃÄ@PRINTF_L32D_9600_31766_31767FPFPF  0/402  Ram=13
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_1  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_1  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_1  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_1  0/34  Ram=2
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄBCD2Dec  0/30  Ram=4
+   ³  ³  ÃÄ@PSTRINGCN_9600_31766_31767  0/32  Ram=3
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_D_9600_31766_31767  0/182  Ram=6
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_1  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_9600_31766_31767  0/34  Ram=2
+   ³  ³  ÀÄ@PSTRINGC_1  0/34  Ram=2
+   ³  ÃÄGet_Data  0/682  Ram=4
+   ³  ³  ÃÄget_temp  0/132  Ram=4
+   ³  ³  ³  ÃÄ@DIVS3232  0/228  Ram=14
+   ³  ³  ³  ÀÄ@DIVS3232  0/228  Ram=14
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@DIV1616  0/66  Ram=5
+   ³  ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ÃÄ@SITOF  0/74  Ram=2
+   ³  ³  ÃÄ@ADDFF  0/812  Ram=16
+   ³  ³  ÀÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄSetFanSimulator  0/60  Ram=0
+   ³  ³  ÃÄLedFanOn1  0/10  Ram=0
+   ³  ³  ÃÄLedFanOn2  0/10  Ram=0
+   ³  ³  ÃÄLedFanOn3  0/10  Ram=0
+   ³  ³  ÀÄLedFanOn4  0/10  Ram=0
+   ³  ÃÄCtrl2On  (Inline)  Ram=0
+   ³  ÃÄLedFanOffAll  0/8  Ram=0
+   ³  ÃÄCtrl2Off  (Inline)  Ram=0
+   ³  ÃÄProcess_Data  0/114  Ram=0
+   ³  ³  ÃÄprocess_adaptive  0/1248  Ram=28
+   ³  ³  ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ³  ÃÄ@ADDFF  0/812  Ram=16
+   ³  ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ³  ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ³  ÃÄ@ADDFF  0/812  Ram=16
+   ³  ³  ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ³  ÃÄ@ADDFF  0/812  Ram=16
+   ³  ³  ³  ÃÄ@ADDFF  0/812  Ram=16
+   ³  ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ³  ÀÄ@SFTOI  0/60  Ram=4
+   ³  ³  ÀÄread_DS1307  0/156  Ram=2
+   ³  ³     ÀÄ*
+   ³  ÀÄprocess_lifecycle  0/204  Ram=1
+   ³     ÃÄ@goto12934  0/34  Ram=0
+   ³     ÃÄBCD2Dec  0/30  Ram=4
+   ³     ÃÄBCD2Dec  0/30  Ram=4
+   ³     ÃÄBCD2Dec  0/30  Ram=4
+   ³     ÃÄLedHeaterOn  0/6  Ram=0
+   ³     ÃÄLedHeaterOff  0/6  Ram=0
+   ³     ÀÄBeep  0/10  Ram=2
+   ÀÄRTCC_isr  0/780  Ram=0
+      ÃÄSpeakerOn  0/6  Ram=0
+      ÃÄSpeakerOff  0/8  Ram=0
+      ÃÄkey_scan  (Inline)  Ram=0
+      ³  ÃÄcap1188_write_data1  0/76  Ram=2
+      ³  ÃÄcap1188_write_data2  0/76  Ram=2
+      ³  ÃÄcap1188_read_data1  0/88  Ram=2
+      ³  ÃÄcap1188_read_data2  0/88  Ram=2
+      ³  ÀÄGet_Key_Code  0/188  Ram=0
+      ÃÄadc_scan  (Inline)  Ram=1
+      ³  ÃÄAFE90100_ReadReg  0/96  Ram=5
+      ³  ÃÄAFE90100_ReadReg  0/96  Ram=5
+      ³  ÃÄAFE90100_ReadADC  0/66  Ram=4
+      ³  ³  ÃÄAFE90100_ReadReg  0/96  Ram=5
+      ³  ³  ÃÄAFE90100_ReadReg  0/96  Ram=5
+      ³  ³  ÀÄAFE90100_ReadReg  0/96  Ram=5
+      ³  ÀÄAFE90100_ReadADC  0/66  Ram=4
+      ³     ÀÄ*
+      ÃÄtriac_scan  (Inline)  Ram=4
+      ³  ÃÄ@ITOF  0/54  Ram=2
+      ³  ÃÄ@FLT  0/122  Ram=10
+      ³  ÃÄCtrl3On  (Inline)  Ram=0
+      ³  ÃÄCtrl3Off  (Inline)  Ram=0
+      ³  ÃÄ@ITOF  0/54  Ram=2
+      ³  ÃÄ@FLT  0/122  Ram=10
+      ³  ÃÄ@ITOF  0/54  Ram=2
+      ³  ÃÄ@MULFF  0/246  Ram=11
+      ³  ÃÄ@DIVFF  0/350  Ram=14
+      ³  ÃÄ@SFTOI  0/60  Ram=4
+      ³  ÃÄCtrl2On  (Inline)  Ram=0
+      ³  ÃÄCtrl2On  (Inline)  Ram=0
+      ³  ÀÄCtrl2Off  (Inline)  Ram=0
+      ÀÄLed_Scan  0/366  Ram=0
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄsclk_out  0/8  Ram=0
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄByte_Out_All  0/48  Ram=3
+         ³  ÀÄ*
+         ÃÄstrb_out1  0/8  Ram=0
+         ÀÄstrb_out2  0/8  Ram=0

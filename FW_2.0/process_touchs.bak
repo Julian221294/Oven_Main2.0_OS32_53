@@ -1,0 +1,688 @@
+#ifndef _PROCESS_KEYS_H_
+#define _PROCESS_KEYS_H_
+
+#include "leds.h"
+#include "keys.h"
+//#include "adc.h"
+//#include "triac.h"
+#include "rtcc.h"
+#include "cap1188.h"
+
+void Process_Touch(void);
+
+void Process_Touch_0(void);
+void Process_Touch_1(void);
+void Process_Touch_2(void);
+void Process_Touch_3(void);
+void Process_Touch_4(void);
+void Process_Touch_5(void);
+void Process_Touch_6(void);
+void Process_Touch_7(void);
+void Process_Touch_8(void);
+void Process_Touch_9(void);
+void Process_Touch_A(void);
+void Process_Touch_B(void);
+void Process_Touch_C(void);
+void Process_Touch_D(void);
+void Process_Touch_E(void);
+void Process_Touch_F(void);
+void Process_Touch_a_Small(void);
+void Process_Touch_b_Small(void);
+void Process_Touch_c_Small(void);
+void Process_Touch_d_Small(void);
+void Process_Touch_e_Small(void);
+void Process_Touch_f_Small(void);
+
+void Process_Touch(void)
+{
+   if(key_flag) {
+      printf("\n%c", key_code);
+      //beep(BEEP_TIME);
+      switch(key_code)
+      {
+         case '0':
+            Process_Touch_0();
+            break;
+         case '1':
+            Process_Touch_1();
+            break;
+         case '2':
+            Process_Touch_2();
+            break;
+         case '3':
+            Process_Touch_3();
+            break;
+         case '4':
+            Process_Touch_4();
+            break;
+         case '5':
+            Process_Touch_5();
+            break;
+         case '6':
+            Process_Touch_6();
+            break;
+         case '7':
+            Process_Touch_7();
+            break;
+         case '8':
+            Process_Touch_8();
+            break;
+         case '9':
+            Process_Touch_9();
+            break;
+         case 'A':
+            Process_Touch_A();
+            break;
+         case 'B':
+            Process_Touch_B();
+            break;
+         case 'C':
+            Process_Touch_C();
+            break;
+         case 'D':
+            Process_Touch_D();
+            break;
+         case 'E':
+            Process_Touch_E();
+            break;
+         case 'F':
+            Process_Touch_F();
+            break;
+         case 'a':
+            Process_Touch_a_Small();
+            break;
+         case 'b':
+            Process_Touch_b_Small();
+            break;
+         case 'c':
+            Process_Touch_c_Small();
+            break;
+         case 'd':
+            Process_Touch_d_Small();
+            break;
+         case 'e':
+            Process_Touch_e_Small();
+            break;
+         case 'f':
+            Process_Touch_f_Small();
+      }
+      key_flag = 0;
+   }
+}
+
+void Process_Touch_0(void)
+{
+   //beep(BEEP_TIME);
+   if (g_state <= ST_SET_PID_KD) {  //In setting states!
+      g_state = ST_RUN_WAITING_TIME;
+      Led_0_On();
+      remain_time = delay_time;
+      last_min = read_ds1307(1);   // min
+      //TEMP_LOWER_FULLON_CORRECTION = 100*(30.0 - (setpoint/100.0)/10.0);
+   } else {
+      g_state = ST_IDLE;
+      Led_0_Off();
+      g_mode = read_DS1307(0x08);
+      switch(g_mode) {
+         case PROGRAM1:
+            Process_Touch_F();
+            break;
+         case PROGRAM2:
+            Process_Touch_E();
+            break;
+         case PROGRAM3:
+            Process_Touch_D();
+            break;
+         case PROGRAM4:
+            Process_Touch_C();
+            break;
+         case PROGRAM5:
+            Process_Touch_1();
+            break;
+         default:
+            Process_Touch_8();
+            break;
+      }
+   }
+}
+
+void Process_Touch_2(void)
+{
+   //beep(BEEP_TIME);
+   if (fan_speed >= (FAN_SPEED_MIN+1)) {
+      fan_speed -= 1;
+      Store_FanSpeed();
+   }
+}
+
+void Process_Touch_3(void)
+{
+   //beep(BEEP_TIME);
+   if (fan_speed <= (FAN_SPEED_MAX-1)) {
+      fan_speed += 1;
+      Store_FanSpeed();
+   }
+}
+
+void Process_Touch_4(void)
+{
+   switch(g_state){
+      case ST_SET_WAIT_TIME:
+         //beep(BEEP_TIME);
+         if (delay_time >= (DELAY_TIME_MIN+1)) {
+            delay_time -= 1;
+            PutTime_One(2, delay_time);
+            user_delay_time = delay_time;
+         }
+         Store_WaitTime();
+         break;
+      case ST_SET_HOLD_TIME:
+         //beep(BEEP_TIME);
+         if (ster_time >= (STER_TIME_MIN+1)) {
+            ster_time -= 1;
+            PutTime_One(2, ster_time);
+            user_ster_time = ster_time;
+         }
+         Store_HoldTime();
+         break;
+   }
+}
+
+void Process_Touch_5(void)
+{
+   switch(g_state){
+      case ST_SET_WAIT_TIME:
+         //beep(BEEP_TIME);
+         if (delay_time <= (DELAY_TIME_MAX-1)) {
+            delay_time += 1;
+            PutTime_One(2, delay_time);
+            user_delay_time = delay_time;
+         }
+         Store_WaitTime();
+         break;
+      case ST_SET_HOLD_TIME:
+         //beep(BEEP_TIME);
+         if (ster_time <= (STER_TIME_MAX-1)) {
+            ster_time += 1;
+            PutTime_One(2, ster_time);
+            user_ster_time = ster_time;
+         }
+         Store_HoldTime();
+         break;
+   }
+}
+
+void Process_Touch_6(void)
+{
+   switch(g_state){
+      case ST_SET_SETPOINT:
+         //beep(BEEP_TIME);
+         if (setpoint >= (SETPOINT_MIN+100)) {
+            setpoint -= 100;
+            PutTemp(1, setpoint);
+            user_setpoint = setpoint;
+         }
+         Store_Setpoint();
+         break;
+      case ST_SET_PROTECT:
+         //beep(BEEP_TIME);
+         if (protect >= (PROTECT_MIN+100)) {
+            protect -= 100;
+            PutTemp(1, protect);
+            user_protect = protect;
+         }
+         Store_Protect();
+         break;
+      case ST_SET_PID_KP:
+         //beep(BEEP_TIME);
+         if (pid_kp > 00) {
+            pid_kp -= 1;
+            PutPid(1, pid_kp);
+            Store_Kp();
+         }
+         break;
+      case ST_SET_PID_KI:
+         //beep(BEEP_TIME);
+         if (pid_ki > 0) {
+            pid_ki -= 1;
+            PutPid(1, pid_ki);
+            Store_Ki();
+         }
+         break;
+      case ST_SET_PID_KD:
+         //beep(BEEP_TIME);
+         if (pid_kd > 0) {
+            pid_kd -= 1;
+            PutPid(1, pid_kd);
+            Store_Kd();
+         }
+         break;
+      case ST_SET_OFFSET:
+         //beep(BEEP_TIME);
+         if (temp_offset > -1000) {
+            temp_offset -= 10;
+            PutOffset(1, temp_offset);
+         }
+         break;
+   }
+}
+
+void Process_Touch_7(void)
+{
+   switch(g_state){
+      case ST_SET_SETPOINT:
+         //beep(BEEP_TIME);
+         if (setpoint <= (SETPOINT_MAX-100)) {
+            setpoint += 100;
+            PutTemp(1, setpoint);
+            user_setpoint = setpoint;
+         }
+         Store_Setpoint();
+         break;
+      case ST_SET_PROTECT:
+         //beep(BEEP_TIME);
+         if (protect <= (PROTECT_MAX-100)) {
+            protect += 100;
+            PutTemp(1, protect);
+            user_protect = protect;
+         }
+         Store_Protect();
+         break;
+      case ST_SET_PID_KP:
+         //beep(BEEP_TIME);
+         if (pid_kp < (100)) {
+            pid_kp += 1;
+            PutPid(1, pid_kp);
+            Store_Kp();
+         }
+         break;
+      case ST_SET_PID_KI:
+         //beep(BEEP_TIME);
+         if (pid_ki < (100)) {
+            pid_ki += 1;
+            PutPid(1, pid_ki);
+            Store_Ki();
+         }
+         break;
+      case ST_SET_PID_KD:
+         //beep(BEEP_TIME);
+         if (pid_kd < (100)) {
+            pid_kd += 1;
+            PutPid(1, pid_kd);
+            Store_Kd();
+         }
+         Store_Setpoint();
+         break;
+      case ST_SET_OFFSET:
+         //beep(BEEP_TIME);
+         if (temp_offset < 1000) {
+            temp_offset += 10;
+            PutOffset(1, temp_offset);
+            Store_Offset();
+         }
+         break;
+   }
+}
+
+void Process_Touch_9(void)
+{
+   int8 d1, d0;
+   switch(g_state)
+   {
+      case ST_SET_DAY_OF_WEEK:
+         if(day < SATURDAY)
+            day += 1;
+         else
+            day = SUNDAY;
+         write_ds1307(3, day);
+         break;
+      case ST_SET_HOUR:
+         d1 = hour / 16;
+         d0 = hour & 0x0F;
+         if((d1*10+d0) < 24) {
+            d0 += 1;
+            d1 += d0/10;
+            d0 %= 10;
+            hour = d1*16 + d0;
+         } else {
+            hour = 0;
+         }
+         write_ds1307(2, hour);
+         break;
+      case ST_SET_MINUTE:
+         d1 = min / 16;
+         d0 = min & 0x0F;
+         if((d1*10+d0) < 59) {
+            d0 += 1;
+            d1 += d0/10;
+            d0 %= 10;
+            min = d1*16 + d0;
+         } else {
+            min = 0;
+         }
+         write_ds1307(1, min);
+         break;
+   }
+   PutDateTime();
+}
+
+void Process_Touch_A(void)
+{
+   int8 d1, d0;
+   switch(g_state)
+   {
+      case ST_SET_DAY_OF_WEEK:
+         if(day > SUNDAY)
+            day -= 1;
+         else
+            day = SATURDAY;
+         write_ds1307(3, day);
+         break;
+      case ST_SET_HOUR:
+         d1 = hour / 16;
+         d0 = hour & 0x0F;
+         if(d0 == 0) {
+            d0 = 3;
+            if (d1 > 0)
+               d1 -= 1;
+            else 
+               d1 = 2;
+         } else {
+            d0 -= 1;
+         }
+         hour = d1*16 + d0;
+         write_ds1307(2, hour);
+         break;
+      case ST_SET_MINUTE:
+         d1 = min / 16;
+         d0 = min & 0x0F;
+         if (d0 > 0)
+            d0 -= 1;
+         else {
+            d0 = 9;
+            if (d1 > 0)
+               d1 -= 1;
+            else
+               d1 = 5;
+         }
+         min = d1 * 16 + d0;
+         write_ds1307(1, min);
+         break;
+   }
+   PutDateTime();
+}
+
+void Process_Touch_B()
+{
+   switch (g_state) {
+      case ST_SET_DAY_OF_WEEK:
+         beep(10);
+         g_state = ST_SET_HOUR;
+         break;
+      case ST_SET_HOUR:
+         beep(10);
+         g_state = ST_SET_MINUTE;
+         break;
+      case ST_SET_MINUTE:
+         beep(10);
+         g_state = ST_SET_DAY_OF_WEEK;
+         break;
+      case ST_SET_SETPOINT:
+         beep(10);
+         g_state = ST_SET_PROTECT;
+         LedSetTempOff();
+         LedProtectTempOn();
+         PutTemp(1, protect);
+         break;
+      case ST_SET_PROTECT: 
+         beep(10);
+         g_state = ST_SET_WAIT_TIME;
+         LedTimeSterOff();
+         LedTimeDelayOn();
+         PutTime_One(2,delay_time);
+         break;
+      case ST_SET_WAIT_TIME: 
+         beep(10);
+         g_state = ST_SET_HOLD_TIME;
+         LedTimeDelayOff();
+         LedTimeSterOn();
+         PutTime_One(2,ster_time);
+         break;
+      case ST_SET_HOLD_TIME: 
+         beep(10);
+         g_state = ST_SET_SETPOINT;
+         LedProtectTempOff();
+         LedSetTempOn();
+         PutTemp(1, setpoint);
+         break;
+   }
+}
+
+void Process_Touch_b_small()
+{
+   switch(g_state) {
+      case ST_IDLE:
+         beep(BEEP_TIME);
+         g_state = ST_SET_DAY_OF_WEEK;
+         break;
+      case ST_SET_DAY_OF_WEEK:
+      case ST_SET_HOUR:
+      case ST_SET_MINUTE:
+         beep(BEEP_TIME);
+         g_state = ST_IDLE;
+         break;;
+   }
+}
+
+void Process_Touch_c_small()
+{
+   //screen_index = 1;
+   if (g_state == ST_IDLE) {
+      beep(BEEP_TIME);
+      g_state = ST_SET_OFFSET;
+      PutOffset(1, temp_offset);
+   } else if (g_state == ST_SET_OFFSET){
+      beep(BEEP_TIME);
+      g_state = ST_IDLE;
+      Store_Offset();
+   }
+}
+
+void Process_Touch_d_small()
+{
+   if (g_state == ST_IDLE) {
+      beep(BEEP_TIME);
+      g_state = ST_SET_PID_KD;
+      PutPid(1, pid_kd);
+   } else if (g_state == ST_SET_PID_KD){
+      beep(BEEP_TIME);
+      g_state = ST_IDLE;
+   }
+}
+
+void Process_Touch_e_small()
+{
+   if (g_state == ST_IDLE) {
+      //beep(BEEP_TIME);
+      g_state = ST_SET_PID_KI;
+      PutPid(1, pid_ki);
+   } else if (g_state == ST_SET_PID_KI){
+      //beep(BEEP_TIME);
+      g_state = ST_IDLE;
+   }
+}
+
+void Process_Touch_f_small() {
+   if (g_state == ST_IDLE) {
+      //beep(BEEP_TIME);
+      g_state = ST_SET_PID_KP;
+      PutPid(1, pid_kp);
+   } else if (g_state == ST_SET_PID_KP) {
+      //beep(BEEP_TIME);
+      g_state = ST_IDLE;
+   }
+}
+
+void Process_Touch_a_small()
+{
+   screen_index = 1;
+   
+}
+
+void Process_Touch_1(void)
+{
+   switch (g_state) {
+      case ST_IDLE:
+      case ST_SET_SETPOINT:
+      case ST_SET_PROTECT:
+      case ST_SET_WAIT_TIME:
+      case ST_SET_HOLD_TIME:
+      case ST_COMPLETED:
+         g_state = ST_IDLE;
+         //beep(BEEP_TIME);
+         Led_1CDEF8_Off();
+         Led_1_On();
+         g_mode = PROGRAM5;
+         Store_Mode();
+         setpoint = PROG5_SETPOINT;
+         protect = PROG5_PROTECT;
+         delay_time = PROG5_DELAY_TIME;
+         ster_time = PROG5_STER_TIME;
+         PutTemp(1, setpoint);
+         PutTime_One(2, ster_time);
+         break;
+   }
+}
+
+void Process_Touch_8(void)
+{
+   switch (g_state) {
+      case ST_IDLE:
+      case ST_COMPLETED:
+         g_state = ST_IDLE;
+         //beep(BEEP_TIME);
+         Led_1CDEF8_Off();
+         Led_8_On();
+         g_mode = USER_MODE;
+         Store_Mode();
+         g_state = ST_SET_SETPOINT;
+         setpoint = user_setpoint;
+         protect = user_protect;
+         delay_time = user_delay_time;
+         ster_time = user_ster_time;
+         Store_WaitTime();
+         Store_HoldTime();
+         Store_Setpoint();
+         Store_Protect();
+         LedSetTempOn();
+         LedProtectTempOff();
+         LedTimeDelayOn();
+         LedTimeSterOff();
+         PutTemp(1, setpoint);
+         PutTime_One(2, ster_time);
+         break;
+   }
+}
+
+void Process_Touch_C(void)
+{
+   switch (g_state) {
+      case ST_IDLE:
+      case ST_SET_SETPOINT:
+      case ST_SET_PROTECT:
+      case ST_SET_WAIT_TIME:
+      case ST_SET_HOLD_TIME:
+      case ST_COMPLETED:
+         //beep(BEEP_TIME);
+         g_state = ST_IDLE;
+         Led_1CDEF8_Off();
+         Led_C_On();
+         g_mode = PROGRAM4;
+         Store_Mode();
+         setpoint = PROG4_SETPOINT;
+         protect = PROG4_PROTECT;
+         delay_time = PROG4_DELAY_TIME;
+         ster_time = PROG4_STER_TIME;
+         PutTemp(1, setpoint);
+         PutTime_One(2, ster_time);
+         break;
+   }
+}
+
+void Process_Touch_D(void)
+{
+   switch (g_state) {
+      case ST_IDLE:
+      case ST_SET_SETPOINT:
+      case ST_SET_PROTECT:
+      case ST_SET_WAIT_TIME:
+      case ST_SET_HOLD_TIME:
+      case ST_COMPLETED:
+         g_state = ST_IDLE;
+         //beep(BEEP_TIME);
+         Led_1CDEF8_Off();
+         Led_D_On();
+         g_mode = PROGRAM3;
+         Store_Mode();
+         setpoint = PROG3_SETPOINT;
+         protect = PROG3_PROTECT;
+         delay_time = PROG3_DELAY_TIME;
+         ster_time = PROG3_STER_TIME;
+         PutTemp(1, setpoint);
+         PutTime_One(2, ster_time);
+         break;
+   }
+}
+
+void Process_Touch_E(void)
+{
+   switch (g_state) {
+      case ST_IDLE:
+      case ST_SET_SETPOINT:
+      case ST_SET_PROTECT:
+      case ST_SET_WAIT_TIME:
+      case ST_SET_HOLD_TIME:
+      case ST_COMPLETED:
+         //beep(BEEP_TIME);
+         g_state = ST_IDLE;
+         Led_1CDEF8_Off();
+         Led_E_On();
+         g_mode = PROGRAM2;
+         Store_Mode();
+         setpoint = PROG2_SETPOINT;
+         protect = PROG2_PROTECT;
+         delay_time = PROG2_DELAY_TIME;
+         ster_time = PROG2_STER_TIME;
+         PutTemp(1, setpoint);
+         PutTime_One(2, ster_time);
+         break;
+   }
+}
+
+void Process_Touch_F(void)
+{
+   switch (g_state) {
+      case ST_IDLE:
+      case ST_SET_SETPOINT:
+      case ST_SET_PROTECT:
+      case ST_SET_WAIT_TIME:
+      case ST_SET_HOLD_TIME:
+      case ST_COMPLETED:
+         //beep(BEEP_TIME);
+         g_state = ST_IDLE;
+         Led_1CDEF8_Off();
+         Led_F_On();
+         g_mode = PROGRAM1;
+         Store_Mode();
+         setpoint = PROG1_SETPOINT;
+         protect = PROG1_PROTECT;
+         delay_time = PROG1_DELAY_TIME;
+         ster_time = PROG1_STER_TIME;
+         PutTemp(1, setpoint);
+         PutTime_One(2, ster_time);
+         break;
+   }
+}
+
+
+#endif // #define _PROCESS_KEYS_H_

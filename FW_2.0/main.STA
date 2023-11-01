@@ -1,0 +1,256 @@
+
+ROM used:   26830/32768 (82%)
+            26830/32768 (82%) including unused fragments
+
+            4.5 Average locations per line
+            19.3 Average locations per statement
+
+RAM used:   220/1536 (14%) at main() level
+            280/1536 (18%) worst case
+
+Stack used: 6 worst case (3 in main + 3 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  123    69   5  main.c
+   34     0   0  main.h
+  839     0   0  C:\Program Files (x86)\PICC\Devices\18F4523.h
+ 1036     0   0  leds.h
+  314     0   0  globals.h
+  566   215  15  ds1307.h
+  167     0   0  cap1188.h
+  217     0   0  keys.h
+   99    31   2  adc.h
+   77     0   0  AFE90100.h
+  140     0   0  TI_LMP90100.h
+  111    44   3  triac.h
+   63     0   0  rtcc.h
+ 1322   584  42  process_touchs.h
+  372   241  17  process_leds.h
+  136    77   6  process_rs232.h
+   49    27   2  process_lifecycle.h
+   84    36   3  process_data.h
+  100    19   1  pid.h
+  150    46   3  max31865.h
+----- -----
+ 5999  1389 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     38   0    1             @delay_ms1
+0    104   0    3             @I2C_READ_1
+0    108   0    1             @I2C_WRITE_1
+0    210   0    4    315  3.5  write_DS1307
+0    156   0    2    219  2.4  read_DS1307
+0     16   0    1     39  1.8  Start_DS1307
+0     30   0    4    150  5.0  BCD2Dec
+0    194   0    2    276  4.6  Store_Kp
+0    194   0    2    276  4.6  Store_Ki
+0    194   0    2    276  4.6  Store_Kd
+0     94   0    2    155  3.1  Store_Offset
+0     16   0    0     30  1.3  Store_Mode
+0     68   0    0    120  3.0  Store_WaitTime
+0     66   0    5             @DIV1616
+0    130   0    0    120  3.0  Store_HoldTime
+0     96   0    2    155  3.1  Store_Setpoint
+0     96   0    2    155  3.1  Store_Protect
+0     96   0    2    155  3.1  Store_Password
+0     96   0    2    155  3.1  Store_SERI
+0     46   0    0     30  1.3  Store_FanSpeed
+0     80   0    0    167  3.5  Check_Data_Previous
+0    256   0    0   1316  3.9  Load_Data_Program_EEPROM
+0     46   0    0             @goto10790
+0    266   0    4    590  4.8  Load_Data_User
+0     30   0    5             @MUL1616
+0    506   1    4   1406  5.7  Load_PID
+0    378   1    4   1256  7.0  Load_Data
+ Inline         0    378  1.4  cap1188_reset
+0     76   0    2    204  1.9  cap1188_write_data1
+0     76   0    2    204  1.9  cap1188_write_data2
+0     88   0    2    236  2.4  cap1188_read_data1
+0     88   0    2    236  2.4  cap1188_read_data2
+0     78   0    0     48  1.1  cap1188_init
+0    110   0    1    380  3.7  Get7Seg
+0      8   0    1     36  1.8  AddPoint
+0      8   0    0     37  1.1  sclk_out
+0      8   0    0     37  1.1  strb_out1
+0      8   0    0     37  1.1  strb_out2
+0     48   0    3    265  4.3  Byte_Out_All
+0    366   1    0   2823  6.4  Led_Scan
+0      6   0    0     31  1.7  SpeakerOn
+0      8   0    0     49  2.3  SpeakerOff
+0      6   0    0     31  1.7  LedClockOn
+0      4   0    0     31  1.7  LedSetTempOn
+0      4   0    0     31  1.7  LedSetTempOff
+0      4   0    0     31  1.7  LedProtectTempOn
+0      4   0    0     31  1.7  LedProtectTempOff
+0      6   0    0     31  1.7  LedTimeDelayOn
+0      4   0    0     31  1.7  LedTimeDelayOff
+0      4   0    0     31  1.7  LedTimeSterOn
+0      4   0    0     31  1.7  LedTimeSterOff
+0      6   0    0     31  1.7  LedHeaterOn
+0      6   0    0     31  1.7  LedHeaterOff
+0    120   0    1    169  2.7  Led_Prog_Off
+0     60   0    1     83  2.5  Led_0_On
+0     60   0    1     83  2.5  Led_1_On
+0     60   0    1     83  2.5  Led_2_On
+0     60   0    1     83  2.5  Led_3_On
+0     60   0    1     83  2.5  Led_4_On
+0     60   0    1     83  2.5  Led_5_On
+0     60   0    1     83  2.5  Led_6_On
+0     60   0    1     83  2.5  Led_7_On
+0     60   0    1     83  2.5  Led_8_On
+0     60   0    1     83  2.5  Led_Dot_On
+0     60   0    1     83  2.5  Led_Dot_Off
+0     60   0    1     83  2.5  Led_A_On
+0     62   0    1     83  2.5  Led_C_On
+0     62   0    1     83  2.5  Led_C_Off
+0     60   0    1     83  2.5  Led_D_On
+0     62   0    1     83  2.5  Led_E_On
+0     62   0    1     83  2.5  Led_F_On
+0     10   0    2     30  1.7  Beep
+0     74   0    2    653  7.2  SetDate
+0     40   0    0             @goto11263
+0    104   0    1    433  3.3  PutDateTime
+0    350   1   10    421  3.8  PutTime_One
+0     40   0    3             @DIV88
+0   1230   2    9   1290  5.9  PutTempSign
+0    116   0    6             @DIVS1616
+0    804   1    9    816  5.8  PutOffset
+0    354   1    7    334  4.4  PutPid
+0   2266   4    6   4819  5.0  PutSign
+0     56   0    0             @goto11352
+0     10   0    0     59  2.3  LedFanOn1
+0     10   0    0     59  2.3  LedFanOn2
+0     10   0    0     59  2.3  LedFanOn3
+0     10   0    0     59  2.3  LedFanOn4
+0      8   0    0     31  1.7  LedFanOffAll
+0     60   0    0    357  6.0  SetFanSimulator
+ Inline         0    323  2.3  key_init
+ Inline         0   1551  6.8  key_scan
+0    188   0    0    898  1.3  Get_Key_Code
+0     80   0    5    428  5.3  AFE90100_WriteReg
+0     96   0    5    452  5.5  AFE90100_ReadReg
+0     66   0    4    262  3.2  AFE90100_ReadADC
+ Inline         0    391  3.2  adc_init
+0    812   2   16             @ADDFF
+ Inline         1    228  3.9  adc_scan
+0    132   0    4    104  3.0  get_temp
+0    228   0   14             @DIVS3232
+ Inline         0     48  1.9  Ctrl1Off
+ Inline         0     48  1.9  Ctrl2On
+ Inline         0     48  1.9  Ctrl2Off
+ Inline         0     48  1.9  Ctrl3On
+ Inline         0     48  1.9  Ctrl3Off
+ Inline         0     55  1.1  triac_init
+ Inline         4    573  5.6  triac_scan
+0     54   0    2             @ITOF
+0    122   0   10             @FLT
+0    246   0   11             @MULFF
+0    350   1   14             @DIVFF
+0     60   0    4             @SFTOI
+0    780   1    0    688  6.2  RTCC_isr
+0     54   0    0    280  1.9  RTCC_init
+0    254   0    2   1748  7.3  Process_Touch
+0    140   0    0             @goto12020
+0     54   0    0    209  3.6  Process_Touch_0
+0     54   0    0    209  3.6  Process_Touch_1
+0     54   0    0    209  3.6  Process_Touch_2
+0     54   0    0    209  3.6  Process_Touch_3
+0     54   0    0    209  3.6  Process_Touch_4
+0     54   0    0    209  3.6  Process_Touch_5
+0     54   0    0    209  3.6  Process_Touch_6
+0     54   0    0    209  3.6  Process_Touch_7
+0     54   0    0    209  3.6  Process_Touch_8
+0     52   0    0    209  3.6  Process_Touch_A
+0    256   0    0   1511  7.3  Process_Touch_D
+0     66   0    0             @goto12148
+0     46   0    0    263  5.0  Process_Touch_9
+0     38   0    0             @goto12172
+0    102   0    0    581  3.8  Process_Touch_B
+0     54   0    0             @goto12187
+0    252   0    0   1452  6.8  Process_Touch_C
+0    462   1    3   2690 10.4  Process_Touch_Down
+0    508   1    3   2657 10.8  Process_Touch_Up
+0     52   0    0    228  3.6  Process_Touch_d_Small
+0     58   0    0    181  3.5  Process_Touch_a_Small
+0     64   0    0    197  3.6  Process_Touch_b_Small
+0     64   0    0    197  3.6  Process_Touch_e_Small
+0     44   0    0    143  3.4  Process_Touch_f_Small
+0     52   0    0    193  3.5  Process_Touch_h_Small
+0    904   2    4   2217  9.0  Process_Setup
+0     54   0    0             @goto12519
+0   1698   3    2  11146  8.9  Process_Led
+0     42   0    0             @goto12556
+0     48   0    0             @goto12624
+0     84   0    0             @goto12627
+0     70   0    0             @goto12650
+0   1262   2    3   3157  8.1  Process_Rs232
+0    110   0    0             @const1210
+0     34   0    2             @PSTRINGC_1
+0      8   0    0             @const1212
+0     34   0    2             @PSTRINGC_9600_31766_31767
+0     24   0    0             @const1214
+0     46   0    0             @goto12703
+0    182   0    6             @PRINTF_D_9600_31766_31767
+0      8   0    0             @const1220
+0     30   0    0             @const1221
+0     32   0    3             @PSTRINGCN_9600_31766_31767
+0     30   0    0             @const1224
+0     64   0    5             @FTOSD
+0    142   0   13             @DIV3232
+0    402   1   13             @PRINTF_L32D_9600_31766_31767FPFPF
+0     24   0    0             @const1235
+0     30   0    0             @const1236
+0     22   0    0             @const1237
+0     24   0    0             @const1238
+0      4   0    0             @const1239
+0     34   0    0             @const1240
+0     28   0    0             @const1241
+0      4   0    0             @const1242
+0     18   0    0             @const1243
+0     28   0    0             @const1244
+0     24   0    0             @const1245
+0      4   0    0             @const1246
+0     34   0    0             @const1247
+0     30   0    0             @const1248
+0      4   0    0             @const1249
+0     30   0    0             @const1250
+0     28   0    0             @const1251
+0     24   0    0             @const1252
+0      4   0    0             @const1253
+0     34   0    0             @const1254
+0     32   0    0             @const1255
+0      4   0    0             @const1256
+0    204   0    1    966  6.6  process_lifecycle
+0     34   0    0             @goto12934
+0   1248   2   28    981  7.1  process_adaptive
+0    682   1    4    772  4.8  Get_Data
+0     74   0    2             @SITOF
+0    114   0    0    402  4.1  Process_Data
+0    554   1    0   1298  4.9  global_init
+0    318   1    0    287  4.0  MAIN
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               129
+    Statements              1389
+    Comments                1172
+    Volume (V)              126142
+    Difficulty (D)          461.7
+    Effort to implement (E) 58241904
+    Time to implement (T)   898 hours, 48 minutes
+    Est Delivered Bugs (B)  50
+    Cyclomatic Complexity   422
+    Maintainability (MI)    46
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     4  0  
+00008-000AC   166  0  
+000AE-07FFE  26656  5938  
+
+
+

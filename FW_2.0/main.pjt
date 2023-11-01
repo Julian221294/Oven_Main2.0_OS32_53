@@ -1,0 +1,41 @@
+[PROJECT]
+Target=main.hex
+Development_Mode=
+Processor_Text=PIC18F4523
+ToolSuite=CCS
+Processor=0x4523
+[main]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+[mru-list]
+1=main.c
+[Windows]
+0=0000 %S 0 0 796 451 3 0
+[Opened Files]
+1=main.c
+2=adc.h
+3=process_data.h
+4=rtcc.h
+5=globals.h
+6=process_leds.h
+7=triac.h
+8=pid.h
+9=process_lifecycle.h
+10=leds.h
+11=process_touchs.h
+12=ds1307.h
+13=
+14=AFE90100.h
+15=
+16=
+17=
+[Target Data]
+OptionString=-p +FH
+FileList=E:\works\oven2k15\fw\main.c
+[Units]
+Count=1
+1=main (main)

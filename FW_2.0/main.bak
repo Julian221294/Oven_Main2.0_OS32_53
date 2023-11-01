@@ -1,0 +1,347 @@
+#include "main.h"
+
+#use fast_io(ALL)
+
+#include "leds.h"
+#include "keys.h"
+#include "adc.h"
+#include "triac.h"
+#include "rtcc.h"
+#include "cap1188.h"
+#include "process_touchs.h"
+#include "process_leds.h"
+#include "process_rs232.h"
+#include "process_lifecycle.h"
+#include "process_data.h"
+#include "AFE90100.h"
+#include "mmcsd.h"
+
+char ch, cmd;
+int8 i;
+BYTE value;
+int32 address = 0;
+int8 mon_data_curr, mon_data_prev;
+int32 page_ptr;
+int16 byte_ptr;
+int16 lindex;
+
+void global_init(void);
+
+void global_init(void)
+{
+   setup_oscillator(OSC_8MHZ|OSC_NORMAL|OSC_31250|OSC_PLL_ON);
+   set_tris_d(0x00); // All port D as output
+   set_tris_a(0x00); // All port A as output
+   set_tris_c(0x90); // PIN_C7=RXD; PIN_C4=MOSI as inputs, other pins as outputs
+   output_high(PIN_A0); //Disable the AFE
+   setup_spi(SPI_MASTER|SPI_L_TO_H|SPI_XMIT_L_TO_H|SPI_CLK_DIV_16);
+   key_init();
+   //setup_timer_0(RTCC_INTERNAL|RTCC_DIV_32|RTCC_8_bit); //1 ms cycle
+   setup_timer_0(RTCC_INTERNAL|RTCC_DIV_64|RTCC_8_bit); //2.0 ms cycle
+   //setup_timer_0(RTCC_INTERNAL|RTCC_DIV_128|RTCC_8_bit); //4 ms cycle
+   enable_interrupts(INT_RTCC);
+   enable_interrupts(GLOBAL);
+   
+   //adc_init();key_init(); led_init(); triac_init(); RTCC_init();
+   //HeaterOff(); Valve1Off(); Valve2Off(); SpeakerOff();
+   adc_init();
+   //led_init();
+   triac_init();
+   Start_DS1307();
+   PutDateTime();
+   LedClockOn();
+   adc_data_buff = 0;
+   realTemp = 0;
+   //Run the power-on-self-test:
+   //post();
+
+   g_state = ST_IDLE;
+   SpeakerOff();
+   Load_Data();
+
+   switch(g_mode) {
+      case PROGRAM1:
+         Process_Touch_F();
+         break;
+      case PROGRAM2:
+         Process_Touch_E();
+         break;
+      case PROGRAM3:
+         Process_Touch_D();
+         break;
+      case PROGRAM4:
+         Process_Touch_C();
+         break;
+      case PROGRAM5:
+         Process_Touch_1();
+         break;
+      default:
+         Process_Touch_8();
+         break;
+   }
+}
+
+int16 is_sector_used(uint32_t sector)
+{
+   int16 tmp;
+   mmcsd_read_sector(sector);
+   if ( (g_mmcsd_buffer[0] == make8(sector, 3))&&
+         (g_mmcsd_buffer[1] == make8(sector, 2))&&
+         (g_mmcsd_buffer[2] == make8(sector, 1))&&
+         (g_mmcsd_buffer[3] == make8(sector, 0))&&
+         (g_mmcsd_buffer[4] == 0x55)&&
+         (g_mmcsd_buffer[5] == 0xAA) ) {
+      tmp = make16(g_mmcsd_buffer[6], g_mmcsd_buffer[7]);
+      return tmp;
+   }
+   return 0;
+}
+
+void get_ptr(void)
+{
+   int16 tmp;
+   page_ptr = 0;
+   byte_ptr = 8;
+   while(page_ptr < 1000) {
+      tmp = is_sector_used(page_ptr);
+      if (tmp > 0) {
+         if (tmp == 512) {
+            page_ptr += 1;
+         } else {
+            byte_ptr = tmp;
+            break;
+         }
+      } else {
+         g_mmcsd_buffer[0] = make8(page_ptr,3);
+         g_mmcsd_buffer[1] = make8(page_ptr,2);
+         g_mmcsd_buffer[2] = make8(page_ptr,1);
+         g_mmcsd_buffer[3] = make8(page_ptr,0);
+         g_mmcsd_buffer[4] = 0x55;
+         g_mmcsd_buffer[5] = 0xAA;
+         g_mmcsd_buffer[6] = 0;
+         g_mmcsd_buffer[7] = 8;
+         for(tmp = 8; tmp < 512; tmp++)
+            g_mmcsd_buffer[tmp] = 0;
+         mmcsd_write_sector(page_ptr);
+         break;
+      }
+      printf("\r\nChecking page %Lu...", page_ptr);
+   }
+}
+
+void process_kbhit(void)
+{
+   char rcmd;
+   if (kbhit())
+   {
+      ch = getc();
+      switch (ch)
+      {
+         case 'g':
+            get_ptr();
+            printf("Current page ptr %Lu\n\r", page_ptr);
+            printf("Current byte ptr %Lu\n\r", byte_ptr);
+            break;
+         case '1':
+            i = mmcsd_software_reset();
+            if (i == 1){
+               printf ("MMC/SD card software reset successfull!\n\r");
+            }else {
+               printf ("MMC/SD card software reset error! code: %u\n\r", i);
+            }
+            break;
+         case '2':
+            mmcsd_send_cmd(SEND_OP_COND,0);
+            printf("%u\n\r", g_cr[1]);
+            break;
+         case '3':
+            mmcsd_send_cmd(READ_OCR,0);
+            printf("%u:%u:%u:%u:%u\n\r", g_cr[1], g_cr[2], g_cr[3], g_cr[4], g_cr[5]);
+            break;
+         case '4':
+            mmcsd_send_cmd(SEND_IF_COND,0x000001AA);
+            printf("%u:%u:%u:%u:%u\n\r", g_cr[1], g_cr[2], g_cr[3], g_cr[4], g_cr[5]);
+            break;
+         case '5':
+            mmcsd_send_cmd(APP_CMD,0);
+            mmcsd_send_cmd(SD_SEND_OP_COND,0x40000000);
+            printf("%u\n\r", g_cr[1]);
+            break;
+         case 'I':
+         case 'i':
+            i = mmcsd_init();
+            switch (card_type)
+            {
+               case 1:
+                  printf("Standard Capacity Card (Ver 1.x) Detected!\n\r");
+                  break;
+               case 2:
+                  printf("High Capacity Card Detected!\n\r");
+                  break;
+               case 3:
+                  printf("Standard Capacity Card (Ver 2.x) Detected!\n\r");
+                  break;
+               default:
+                  printf("Unknown SD Card Detected!\n\r");
+                  break; 
+            }
+            break;
+         case 'C':
+         case 'c':
+            //printf("===============CSD===============\r\n");
+            mmcsd_print_csd();
+            printf("===============CID===============\r\n");
+            mmcsd_print_cid();
+            break;
+         case 'd':
+            printf("Current page ptr %Lu\n\r", page_ptr);
+            printf("Current byte ptr %Lu\n\r", byte_ptr);
+            break;
+         case 'R':
+         case 'r':
+            printf("Address?\n\r");
+            address = make32(getc()-0x30, getc()-0x30, getc()-0x30, getc()-0x30);
+            mmcsd_read_sector(address);
+            for (address = 0; address < 512; address++)
+            {
+               printf("%u:", g_mmcsd_buffer[address]);
+            }
+            printf("\n\r");
+            break;
+         case 'W':
+         case 'w':
+            printf("Address?\n\r");
+            address = make32(getc()-0x30, getc()-0x30, getc()-0x30, getc()-0x30);
+            printf("Value?\n\r");
+            value = getc();
+            for (lindex = 0; lindex < 512; lindex++)
+            {
+               g_mmcsd_buffer[lindex] = value;
+            }
+            mmcsd_write_sector(address);
+            printf("%d is written to @%ld\n\r", value, address);
+            break;
+         case 'S':
+            address = 1000;
+            for (lindex = 0; lindex < 512; lindex++)
+            {
+               g_mmcsd_buffer[lindex] = 0xFF;
+            }
+            for (lindex = 1; lindex < address; lindex++) {
+               mmcsd_write_sector(lindex);
+               printf("Blanking out Page %Lu ...\n\r", lindex);
+            }
+            break;
+         case 's':
+            printf("Page ptr?\n\r");
+            address = getc() - '0';
+            for (lindex = 0; lindex < 512; lindex++)
+            {
+               g_mmcsd_buffer[lindex] = 0xFF;
+            }
+            for (lindex = 1; lindex < address; lindex++) {
+               mmcsd_write_sector(lindex);
+               printf("Blanking out Page %Lu ...\n\r", lindex);
+            }
+            break;
+         case 'b':
+            printf("Page ptr?\n\r");
+            address = getc() - '0';
+            for (lindex = 0; lindex < 512; lindex++)
+            {
+               g_mmcsd_buffer[lindex] = 0xFF;
+            }
+            mmcsd_write_sector(address);
+            printf("Blanking out Page %Lu ...\n\r", address);
+            break;
+         case 'Y':
+            printf("DS1307 Address?\n\r");
+            address = getc() - '0';
+            printf("Value?\n\r");
+            value = getc() - '0';
+            write_DS1307(address, value);
+            break;
+         case 'y':
+            printf("DS1307 Address?\n\r");
+            address = getc() - '0';
+            value = read_DS1307(address);
+            printf("%u\n\r", value);
+            break;
+         case 'p':
+            value = input_d();
+            printf("PortD: %u\n\r", value);
+            break;
+      }
+   }
+}
+
+void main()
+{
+   delay_ms(1000);
+   global_init();
+   
+   printf("Hello World!\n");
+   
+   i = mmcsd_init();
+   delay_ms(100);
+   
+   if (i == 0) {
+      printf("Card Init Successful!\n\r");
+      switch (card_type)
+      {
+         case 1:
+            printf("Standard Capacity Card (Ver 1.x) Detected!\n\r");
+            break;
+         case 2:
+            printf("High Capacity Card Detected!\n\r");
+            break;
+         case 3:
+            printf("Standard Capacity Card (Ver 2.x) Detected!\n\r");
+            break;
+         default:
+            printf("Unknown SD Card Detected!\n\r");
+            break; 
+      }
+   } else {
+      printf("Card Init Failure! Code: %u\n\r", i);
+   }
+   get_ptr();
+   delay_ms(100);
+   printf("Current page ptr %Lu\n\r", page_ptr);
+   printf("Current byte ptr %Lu\n\r", byte_ptr);
+   delay_ms(100);
+   
+   while(1)
+   {
+      process_kbhit();
+   }
+   /*while(1)
+   {
+      Get_Data();
+      PutTemp(1,RealTemp);
+   }*/
+
+   while (1)
+   {
+      Process_Touch();
+      //Process_Rs232();     
+      Process_Led();
+      Get_Data();
+      //Simulate Fan:
+      if (fan_speed > 0)
+      {
+         SetFanSimulator();
+      }
+      if (g_state >= ST_RUN_WAITING_TIME) {
+         Process_Data();
+         Process_LifeCycle();
+      }
+   }
+}
+
+
+//
+//==============================================================================
+//
+
+

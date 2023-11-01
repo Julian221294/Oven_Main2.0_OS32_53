@@ -1,0 +1,204 @@
+#ifndef _DS1307_H_
+#define _DS1307_H_
+
+#include "globals.h"
+
+#use i2c(Master,Slow,sda=PIN_A5,scl=PIN_A4)
+
+void write_DS1307(byte address, BYTE data)
+{
+   short int status;
+   disable_interrupts(GLOBAL);
+   i2c_start();
+   i2c_write(0xd0);
+   i2c_write(address);
+   i2c_write(data);
+   i2c_stop();
+   i2c_start();
+   status=i2c_write(0xd0);
+   while(status==1)
+   {
+      i2c_start();
+      status=i2c_write(0xd0);
+   }
+   enable_interrupts(GLOBAL);
+}
+
+BYTE read_DS1307(byte address)
+{
+   BYTE data;
+   disable_interrupts(GLOBAL);
+   i2c_start();
+   i2c_write(0xd0);
+   i2c_write(address);
+   i2c_start();
+   i2c_write(0xd1);
+   data=i2c_read(0);
+   i2c_stop();
+   enable_interrupts(GLOBAL);
+   return(data);
+}
+
+void Stop_DS1307(void)
+{
+   write_ds1307(0,sec | 0x80);
+}
+
+void Start_DS1307(void)
+{
+   write_ds1307(0,sec & 0x7F);
+}
+
+void Store_Kp(void)
+{
+   unsigned char tmp_H, tmp_L;
+   tmp_H = pid_kp >> 8;
+   tmp_L = pid_kp & 0xFF;
+   write_DS1307(0x10, tmp_H);
+   write_DS1307(0x11, tmp_L);
+}
+
+void Store_Ki(void)
+{
+   unsigned char tmp_H, tmp_L;
+   tmp_H = pid_ki >> 8;
+   tmp_L = pid_ki & 0xFF;
+   write_DS1307(0x12, tmp_H);
+   write_DS1307(0x13, tmp_L);
+}
+
+void Store_Kd(void)
+{
+   unsigned char tmp_H, tmp_L;
+   tmp_H = pid_kd >> 8;
+   tmp_L = pid_kd & 0xFF;
+   write_DS1307(0x14, tmp_H);
+   write_DS1307(0x15, tmp_L);
+}
+
+void Store_Offset(void)
+{
+   unsigned char tmp_H, tmp_L;
+   tmp_H = temp_offset >> 8;
+   tmp_L = temp_offset & 0xFF;
+   /*write_DS1307(0x1B, tmp_H);
+   write_DS1307(0x1C, tmp_L);
+   With Air Jet Temp and Offset, we store in EEPROM*/
+   write_eeprom(0x1B, tmp_H);
+   write_eeprom(0x1C, tmp_L);
+}
+
+void Store_Mode(void)
+{
+   write_DS1307(0x08, g_mode);
+}
+
+void Store_WaitTime(void)
+{
+   wait_hour = user_delay_time/60;
+   wait_min = user_delay_time%60;
+   write_DS1307(0x0A, wait_hour);
+   write_DS1307(0x0B, wait_min);
+}
+
+void Store_HoldTime(void)
+{
+   hold_hour = user_ster_time/60;
+   hold_min = user_ster_time%60;
+   write_DS1307(0x0C, hold_hour);
+   write_DS1307(0x0D, hold_min);
+}
+
+void Store_Setpoint(void)
+{
+   unsigned char tmp_H, tmp_L;
+   tmp_H = user_setpoint >> 8;
+   tmp_L = user_setpoint & 0xFF;
+   write_DS1307(0x16, tmp_H);
+   write_DS1307(0x17, tmp_L);
+}
+
+void Store_Protect(void)
+{
+   unsigned char tmp_H, tmp_L;
+   tmp_H = user_protect >> 8;
+   tmp_L = user_protect & 0xFF;
+   write_DS1307(0x18, tmp_H);
+   write_DS1307(0x19, tmp_L);
+}
+
+void Store_FanSpeed(void)
+{
+   write_DS1307(0x1A, fan_speed);
+}
+
+void Load_Data(void)
+{
+   unsigned char  tmp_H, tmp_L;
+   g_mode = read_DS1307(0x08);
+   if ((g_mode >= PROGRAM1)&&(g_mode <= USER_MODE)) {
+      wait_hour = read_DS1307(0x0A);
+      wait_min = read_DS1307(0x0B);
+      user_delay_time = (int16)wait_hour * 60 + wait_min;
+      if (user_delay_time > DELAY_TIME_MAX)
+         delay_time = DELAY_TIME_DEF;
+      hold_hour = read_DS1307(0x0C);
+      hold_min = read_DS1307(0x0D);
+      user_ster_time = (int16)hold_hour*60 + hold_min;
+      if (user_ster_time > STER_TIME_MAX)
+         user_ster_time = STER_TIME_DEF;
+      tmp_H = read_DS1307(0x10);
+      tmp_L = read_DS1307(0x11);
+      pid_kp = (unsigned int16)(tmp_H) * 0x100 + tmp_L;
+      if (pid_kp > PID_KP_MAX)
+         pid_kp = PID_KP_DEF;
+      tmp_H = read_DS1307(0x12);
+      tmp_L = read_DS1307(0x13);
+      pid_ki = (unsigned int16)(tmp_H) * 0x100 + tmp_L;
+      if (pid_ki > PID_KI_MAX)
+         pid_ki = PID_KI_DEF;
+      tmp_H = read_DS1307(0x14);
+      tmp_L = read_DS1307(0x15);
+      pid_kd = (unsigned int16)(tmp_H) * 0x100 + tmp_L;
+      if (pid_kd > PID_KD_MAX)
+         pid_kd = PID_KD_DEF;
+      tmp_H = read_DS1307(0x1B);
+      tmp_L = read_DS1307(0x1C);
+      temp_offset = (unsigned int16)(tmp_H) * 0x100 + tmp_L;
+      if ((temp_offset > 1000)||(temp_offset < -1000))
+         temp_offset = 0;
+      tmp_H = read_DS1307(0x16);
+      tmp_L = read_DS1307(0x17);
+      user_setpoint = (unsigned int16)(tmp_H) * 0x100 + tmp_L;
+      if (user_setpoint > SETPOINT_MAX)
+         user_setpoint = SETPOINT_DEF;
+      tmp_H = read_DS1307(0x18);
+      tmp_L = read_DS1307(0x19);
+      user_protect = (unsigned int16)(tmp_H) * 0x100 + tmp_L;
+      if (user_protect > PROTECT_MAX)
+         user_protect = PROTECT_DEF;
+      fan_speed = read_DS1307(0x1A);
+      if (fan_speed > FAN_SPEED_MAX)
+         fan_speed = FAN_SPEED_DEF;
+   } else {
+      g_mode = USER_MODE;
+      user_delay_time = DELAY_TIME_DEF;
+      user_ster_time = STER_TIME_DEF;
+      user_setpoint = SETPOINT_DEF;
+      user_protect = PROTECT_DEF;
+      pid_kp = PID_KP_DEF;
+      pid_ki = PID_KI_DEF;
+      pid_kd = PID_KD_DEF;
+      fan_speed = FAN_SPEED_DEF;
+   }
+   /*tmp_H = read_DS1307(0x1B);
+   tmp_L = read_DS1307(0x1C);
+   With Offset Temp., we load from EEPROM*/
+   tmp_H = read_eeprom(0x1B);
+   tmp_L = read_eeprom(0x1C);
+   temp_offset = (unsigned int16)(tmp_H) * 0x100 + tmp_L;
+   if ((temp_offset > OFFSET_TEMP_RANGE)||(temp_offset < -OFFSET_TEMP_RANGE))
+      temp_offset = 0;
+}
+
+#endif   // #define _DS1307_H_

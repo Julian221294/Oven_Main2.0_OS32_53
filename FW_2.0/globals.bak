@@ -1,0 +1,54 @@
+#ifndef _GLOBALS_H_
+#define _GLOBALS_H_
+
+#use fast_io(ALL)
+
+typedef enum {
+   STATE_KEY_IDLE,
+   STATE_KEY_PRESSED,
+   STATE_HAS_KEY,
+   STATE_KEY_PRESSED_EXT,
+   STATE_HAS_KEY_EXT,
+} KEY_STATE_;
+
+typedef enum _WEEKDAY {
+   MONDAY,
+   TUESDAY,
+   WEDNESDAY,
+   THURSDAY,
+   FRIDAY,
+   SATURDAY,
+   SUNDAY,
+   NONEDAY,
+} WEEKDAY;
+
+//#define HALF_SECOND  185
+#define HALF_SECOND  160
+KEY_STATE_ key_state = STATE_KEY_IDLE;
+unsigned char decoded_key_code;
+unsigned char key_code = 0;
+unsigned char tmp_key = 0;
+unsigned char tmp = 0;
+unsigned int16 tmp_int16;
+unsigned int16 key_hold_count = 0;
+
+unsigned char sec, min, hour, day, date, month, year;
+unsigned char last_min, curr_min;
+unsigned int16 half_second_count = HALF_SECOND;
+unsigned int8 tick;
+
+int8 mon_data_curr, mon_data_prev;
+int32 page_ptr;
+int16 byte_ptr;
+
+unsigned int8 time_update_index = 0;
+
+char ch, cmd;
+uint8_t i;
+BYTE value;
+int32 address = 0;
+uint16_t index;
+uint8_t ds1307_guard;
+
+#endif // #define _GLOBALS_H_
+
