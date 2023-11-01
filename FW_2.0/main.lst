@@ -1,4 +1,4 @@
-CCS PCH C Compiler, Version 5.025, 5967               01-Nov-23 10:38
+CCS PCH C Compiler, Version 5.025, 5967               01-Nov-23 14:30
 
                Filename:   F:\1. YEAR_2023\1. NIHOPHAWA_2023\1.1. Git_Program\1.1.5. Oven_Main2.0\Oven_OS32_OS53\FW_2.0\main.lst
 
@@ -23236,7 +23236,7 @@ CCS PCH C Compiler, Version 5.025, 5967               01-Nov-23 10:38
 ....................    key_init(); 
 ....................    adc_init(); 
 ....................    triac_init(); 
-....................    RTCC_init(); 
+....................    RTCC_init(); // setup_timer0 
 *
 224E:  GOTO   11FA
 ....................    Start_DS1307(); 
@@ -23486,7 +23486,7 @@ CCS PCH C Compiler, Version 5.025, 5967               01-Nov-23 10:38
 6890:  CLRF   xCF
 6892:  CLRF   xD0
 .................... { 
-....................    // delay_ms(1000); 
+....................       //delay_ms(1000); 
 ....................    global_init(); 
 6894:  GOTO   20C0
 ....................  

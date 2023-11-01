@@ -600,7 +600,7 @@ Project Directory:
     F:\1. YEAR_2023\1. NIHOPHAWA_2023\1.1. Git_Program\1.1.5. Oven_Main2.0\Oven_OS32_OS53\FW_2.0\
 
 Project Files:
-    main.c                                                  [01-Nov-23 09:50  CRC=4CCF4F36]
+    main.c                                                  [01-Nov-23 13:56  CRC=594FEF8A]
     main.h                                                  [26-Dec-20 11:54  CRC=C9E5DB3E]
     C:\Program Files (x86)\PICC\Devices\18F4523.h           [18-Apr-14 16:57  CRC=150A54F8]
     leds.h                                                  [25-Aug-21 16:41  CRC=8CEB73FB]
@@ -621,7 +621,7 @@ Project Files:
     pid.h                                                   [20-Oct-21 16:07  CRC=DA87C72F]
     max31865.h                                              [23-Dec-20 11:36  CRC=39BF757E]
 
-Source signature=27A9C610
+Source signature=342A6664
 
 Units:
     main (main)
