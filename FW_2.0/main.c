@@ -89,7 +89,7 @@ void global_init(void)
 
 void main()
 {
-
+   // delay_ms(5000);
    global_init();
 
    while (TRUE)
