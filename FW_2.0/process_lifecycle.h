@@ -3,7 +3,7 @@
 
 #define TEMP_GAP 0
 #define TEMP_ENV 10000
-#define TIME_PRE_HOLD   5
+#define TIME_PRE_HOLD   3
 void process_lifecycle(void)
 {
    switch(g_state) {
